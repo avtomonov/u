@@ -26,7 +26,6 @@
 import axios from 'axios';
 
 export default {
-  name: "AuthForm",
   data() {
     return {
         isRegisterLoading: false,
@@ -36,9 +35,6 @@ export default {
         },
         auth: this.$store.state.auth
     };
-  },
-  mounted() {
-    console.log(this.$store.state.auth);
   },
   methods: {
     changeForm() {
@@ -52,7 +48,7 @@ export default {
 
                 const response = await axios({
                     method: 'post',
-                    url: 'https://spiffy-hill-idea.glitch.me/register',
+                    url: 'https://lucky-loud-offer.glitch.me/register',
                     data: {
                         name: this.user.name,
                         email: this.user.email,
@@ -61,7 +57,6 @@ export default {
                 })
 
                 this.$store.commit('authTrue');
-                console.log(this.$store.state.auth);
             }, 1000)
 
         } catch (error) {

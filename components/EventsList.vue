@@ -1,5 +1,5 @@
 <template>
-  <div id="users" class="container mx-auto">
+  <div id="events" class="container mx-auto">
 
     <div class="flex items-center px-5 py-2">
       <span class="w-1/2">
@@ -67,14 +67,14 @@ export default ({
 </script>
 
 <style>
-  #users {
+  #events {
     position: absolute;
     z-index: 2;
     top: 80px;
     left: 20px;
     width: 50vw;
+    height: calc(100vh - 100px);
     background: #fff;
-    height: 40vh;
     overflow-y: scroll;
   }
 </style>

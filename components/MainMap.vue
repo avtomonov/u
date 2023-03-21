@@ -9,34 +9,10 @@ import constants from "~~/constants.js";
 export default {
   data() {
     return {
-      // theme: ref("dark"),
-      // address: null,
-      // currentItemSet: false,
-      // vehicleKey: null,
-      // failSnack: false,
-      // failSnackMsg: "Sorry, something went wrong on our end. Please try again.",
-      // onDirections: false,
-      // map: null,
-      // location: null,
-      // tripActive: false,
-      // directions: null,
-
-      usersList: [{
-        "_id": {
-          "$oid": "640de167a0fc8d4c0c930242"
-        },
-        "name": "Автомонов Андрей",
-        "location": [
-          37.582107,55.894369
-        ],
-        "imageUrl": "https://tesla-cdn.thron.com/delivery/public/image/tesla/c82315a6-ac99-464a-a753-c26bc0fb647d/bvlatuR/std/1200x628/lhd-model-3-social",
-        "_class": "com.brk.CarShare.Entities.Vehicle"
-      }]
+      usersList: this.$store.state.usersList,
+      eventsList: this.$store.state.eventsList
     };
   },
-//   computed: {
-//     ...mapStores({}),
-//   },
   async mounted() {
     navigator.geolocation.watchPosition(this.getCurrentPosition);
 
@@ -58,9 +34,6 @@ export default {
       })
     );
 
-    // await this.vehicleStore.loadVehicles(this.$http);
-    // this.vehiclesList = this.vehicleStore.vehicleList;
-
     this.map.on("load", () => {
       this.map.loadImage(
         "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
@@ -72,6 +45,19 @@ export default {
       let pointFeatures = [];
 
       this.usersList.forEach((user) => {
+        pointFeatures.push({
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [user.location[0], user.location[1]],
+          },
+          properties: {
+            title: user.name,
+          },
+        });
+      });
+
+      this.eventsList.forEach((user) => {
         pointFeatures.push({
           type: "Feature",
           geometry: {
