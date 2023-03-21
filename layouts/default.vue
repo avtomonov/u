@@ -1,11 +1,15 @@
 <template>
   <header class="shadow-sm bg-white">
     <nav class="container mx-auto max-w-7xl p-4 flex justify-between ">
-      <NuxtLink to="/" class="font-bold">Nuxt Dojo</NuxtLink>
+      <NuxtLink to="/" class="font-bold">Nuxt 3</NuxtLink>
       <ul class="flex gap-4">
-        <li><NuxtLink to="/">Home</NuxtLink></li>
-        <li><NuxtLink to="/products/cart" class="">My cart</NuxtLink></li>
-        <li><NuxtLink to="/products" class="btn">Products</NuxtLink></li>
+        <li><NuxtLink to="/">Друзья</NuxtLink></li>
+        <li><NuxtLink to="events">События</NuxtLink></li>
+        <li><NuxtLink to="/event-create" class="btn">Создать событие</NuxtLink></li>
+        <!--
+          <li><NuxtLink to="/products/cart" class="">My cart</NuxtLink></li>
+          <li><NuxtLink to="/products" class="btn">Products</NuxtLink></li>
+        -->
       </ul>
     </nav>
   </header>
@@ -14,6 +18,9 @@
   <div class="container mx-auto p-4">
     <slot />
   </div>
+
+  <MainMap />
+  <AuthForm />
 </template>
 
 <style scoped>

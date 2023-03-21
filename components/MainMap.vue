@@ -45,7 +45,7 @@ export default {
       container: "map",
       style: constants.mapStyle,
       center: [37.6156, 55.7522],
-      zoom: 10,
+      zoom: 8,
     });
     this.map.addControl(new mapboxgl.NavigationControl());
     this.map.addControl(
@@ -191,10 +191,10 @@ export default {
 
 <style scoped>
     #map {
-        height: 100vh;
+        height: calc(100vh - 55px);
         width: 100vw;
         position: absolute;
-        top: 0;
+        top: 55px;
         left: 0;
     }
 </style>
