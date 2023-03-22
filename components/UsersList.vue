@@ -2,12 +2,11 @@
   <div id="users" class="container mx-auto">
     <h1 class="mb-8">Друзья</h1>
 
-    <div v-for="(contact, key) in contacts" :key="key" class="hover:bg-gray-200 cursor-pointer bg-white shadow flex p-5 items-center mb-5 rounded-lg">
+    <div v-for="(user, key) in users" :key="key" class="hover:bg-gray-200 cursor-pointer bg-white shadow flex p-5 items-center mb-5 rounded-lg">
       <div class="w-1/2">
         <div class="flex items-center">
-          <img :src="contact.picture.thumbnail" class="rounded-full">
           <div class="ml-4">
-            <span class="capitalize block text-gray-800">{{ contact.name.first }}</span>
+            <span class="capitalize block text-gray-800">{{ user.email }}</span>
           </div>
         </div>
       </div>
@@ -21,13 +20,13 @@ import axios from 'axios';
 export default ({
     data() {
         return {
-            contacts: [],
+            users: [],
         };
     },
     created: function () {
-        axios.post('https://lucky-loud-offer.glitch.me/users')
+        axios.post('https://picayune-brawny-nut.glitch.me/users')
             .then(res => {
-            this.contacts = res.data.results.map(each => {
+            this.users = res.data.results.map(each => {
                 each.selected = false
                 return each
             })
