@@ -24,7 +24,7 @@ export default ({
         };
     },
     created: function () {
-        axios.post('https://adaptable-common-longship.glitch.me/users')
+        axios.get('https://adaptable-common-longship.glitch.me/users')
             .then(res => {
             this.users = res.data.results.map(each => {
                 each.selected = false
