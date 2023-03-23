@@ -48,7 +48,7 @@ export default {
 
                 const response = await axios({
                     method: 'post',
-                    url: 'https://picayune-brawny-nut.glitch.me/register',
+                    url: 'https://adaptable-common-longship.glitch.me/register',
                     data: {
                         name: this.user.name,
                         email: this.user.email,
